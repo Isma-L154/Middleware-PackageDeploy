@@ -20,20 +20,20 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./Middleware
+      working-directory: ./MiddleWare
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./Middleware
+      working-directory: ./MiddleWare
     - name: Pack      
       run: dotnet pack
-      working-directory: ./Middleware
+      working-directory: ./MiddleWare
       
     - uses: actions/upload-artifact@v3
       with:
         name: Autorizacion.Middleware
         if-no-files-found: error
         retention-days: 7
-        path: /home/runner/work/Middleware-PackageDeploy/Middleware-PackageDeploy/Middleware/*/*/*/*.nupkg
+        path: /home/runner/work/Middleware-PackageDeploy/Middleware-PackageDeploy/MiddleWare/*/*/*/*.nupkg
 
   release:
     runs-on: ubuntu-latest    
