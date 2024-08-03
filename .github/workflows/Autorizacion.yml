@@ -20,20 +20,20 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./MiddleWare/Autorizacion.Middleware
+      working-directory: ./MiddleWare
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./MiddleWare/Autorizacion.Middleware
+      working-directory: ./MiddleWare
     - name: Pack      
       run: dotnet pack
-      working-directory: ./MiddleWare/Autorizacion.Middleware
+      working-directory: ./MiddleWare
       
     - uses: actions/upload-artifact@v3
       with:
         name: Autorizacion.Middleware
         if-no-files-found: error
         retention-days: 7
-        path: /home/runner/work/Middleware-PackageDeploy/Middleware-PackageDeploy/MiddleWare/Autorizacion.Middleware/bin/Release/*.nupkg
+        path: /home/runner/work/Middleware-PackageDeploy/Middleware-PackageDeploy/MiddleWare/*/*/*/*.nupkg
 
   release:
     runs-on: ubuntu-latest    
@@ -51,4 +51,4 @@ jobs:
     - name: Prep packages
       run: dotnet nuget add source --username Isma-L154 --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text --name paquetes "https://nuget.pkg.github.com/Isma-L154/index.json"
     - name: Push package to GitHub packages 
-      run: dotnet nuget push Autorizacion.Middleware/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "paquetes" --skip-duplicate
+      run: dotnet nuget push Autorizacion.Middleware/*/*/*/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "paquetes" --skip-duplicate
