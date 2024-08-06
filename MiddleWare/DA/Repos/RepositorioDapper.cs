@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DA.Repositorios
+namespace Autorizacion.DA.Repos
 {
     public class RepositorioDapper : IRepositorioDapper
     {
