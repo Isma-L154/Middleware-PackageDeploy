@@ -17,10 +17,10 @@ namespace Autorizacion.DA
         IRepositorioDapper _repositorioDapper;
         private SqlConnection _sqlConnection;
 
-        public SeguridadDA(IRepositorioDapper repositorioDapper, SqlConnection sqlConnection)
+        public SeguridadDA(IRepositorioDapper repositorioDapper)
         {
             _repositorioDapper = repositorioDapper;
-            _sqlConnection = repositorioDapper.ObtenerRepositorioDapper();
+            _sqlConnection = _repositorioDapper.ObtenerRepositorioDapper();
         }
         public async Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario)
         {
