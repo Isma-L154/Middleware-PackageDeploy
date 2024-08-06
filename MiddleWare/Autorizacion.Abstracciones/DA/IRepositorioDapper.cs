@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.DA
+namespace Autorizacion.Abstracciones.DA
 {
     public interface IRepositorioDapper
     {

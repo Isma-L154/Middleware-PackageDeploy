@@ -1,14 +1,8 @@
-﻿using Abstracciones.DA;
-using Autorizacion.Abstracciones.DA;
+﻿using Autorizacion.Abstracciones.DA;
 using Autorizacion.Abstracciones.Modelos;
 using Dapper;
 using Helpers;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Autorizacion.DA
 {

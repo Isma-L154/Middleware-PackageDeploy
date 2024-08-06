@@ -1,4 +1,4 @@
-﻿using Abstracciones.DA;
+﻿using Autorizacion.Abstracciones.DA;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
