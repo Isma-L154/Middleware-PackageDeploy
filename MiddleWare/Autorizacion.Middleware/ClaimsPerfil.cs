@@ -1,5 +1,6 @@
 ﻿using Autorizacion.Abstracciones.BW;
 using Autorizacion.Abstracciones.Modelos;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
@@ -75,6 +76,13 @@ namespace Autorizacion.Middleware
         {
             //Obtenemos la info del usuario por medio del flujo del BW
             return await _autorizacionBW.ObtenerUsuario(new Abstracciones.Modelos.Usuario { NombreUsuario = httpContext.User.Claims.Where(c => c.Type == "usuario").FirstOrDefault().Value }); 
+        }
+    }
+    public static class ClaimsUsuarioMiddlewareExtensions
+    {
+        public static IApplicationBuilder AutorizacionClaims(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<ClaimsPerfil>();
         }
     }
 }
